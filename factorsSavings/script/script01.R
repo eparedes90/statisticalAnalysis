@@ -1,6 +1,6 @@
 ####
-##TESIS PROPENsity AL AHORRO
-##Tesista: Alexandra Lovaton
+##Factor savings
+
 ##08/02
 
 rm(list=ls())
@@ -15,7 +15,7 @@ library(readstata13)
 theme_set(theme_bw())
 options(scipen = 999)
 
-setwd("E:/Asesorías de tesis/Economía/Ahorro")
+setwd("E:/AsesorÃ­as de tesis/EconomÃ­a/Ahorro")
 
 data <- read.dta13("raw/Base de datos.dta", convert.factors = F, nonint.factors = F)
 
@@ -96,7 +96,7 @@ data$Ahorro[data$Ahorro == "0"] <- "Control"
 data$Ahorro[data$Ahorro == "1"] <- "Case"
 
 
-#### modelo econométrico
+#### modelo economÃ©trico
 model <- glm(data= data , factor(Ahorro) ~ ., family = "binomial")
 summary(model)
 
@@ -106,7 +106,7 @@ model1 <- data.frame(exp(cbind(OR = coef(model), confint(model))))
 model1 <- xtable(model1)
 print.xtable(model1, type = "html", file = "plots/logit.htm")
 
-### estadística descriptiva
+### estadÃ­stica descriptiva
 for (n in c(2, 4:6)) {
   a <- colnames(data[n])
   temp <- table(data[, c(n, 7)])
