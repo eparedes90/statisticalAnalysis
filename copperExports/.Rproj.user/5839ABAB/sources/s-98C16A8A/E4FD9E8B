@@ -1,27 +1,27 @@
 {
-    "id": "4F79D067",
-    "path": "~/GitHub/statisticalAnalysis/factorsSavings/analisis.Rmd",
-    "project_path": "analisis.Rmd",
+    "id": "E4FD9E8B",
+    "path": "~/GitHub/statisticalAnalysis/copperExports/copperExports.Rmd",
+    "project_path": "copperExports.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "3707262242",
     "contents": "",
     "dirty": false,
-    "created": 1645552191768.0,
+    "created": 1645558749629.0,
     "source_on_save": false,
     "relative_order": 1,
     "properties": {
         "chunk_output_type": "console",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "5,7",
-        "scrollLine": "11"
+        "cursorPosition": "95,0",
+        "scrollLine": "90"
     },
     "folds": "",
-    "lastKnownWriteTime": 1645552220,
+    "lastKnownWriteTime": 1645567036,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1645552220288,
+    "last_content_update": 1645567036062,
     "read_only": false,
     "read_only_alternatives": []
 }

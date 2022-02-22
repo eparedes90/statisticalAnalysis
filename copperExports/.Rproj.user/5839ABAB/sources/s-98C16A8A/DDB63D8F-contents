@@ -4,11 +4,11 @@ subtitle: "Chi square test of independence and Logit univariate"
 author: "Created by: Eduardo Paredes"
 date: "9/2/2022"
 output:
+  pdf_document:
+    toc: yes
   html_document:
     toc: yes
     theme: united
-  pdf_document:
-    toc: yes
 editor_options:
   chunk_output_type: console
 ---
@@ -18,12 +18,11 @@ knitr::opts_chunk$set(echo = FALSE, fig.height = 4, fig.width = 5, fig.align = "
 ```
 
 
-```{r libs, echo= FALSE, warning=FALSE, messages = FALSE}
+```{r libs, echo= FALSE, warning=FALSE, message = FALSE}
 library(pander)
 library(ggplot2)
 library(tidyr)
 library(dplyr)
-library(stargazer)
 library(sandwich)
 library(xtable)
 theme_set(theme_bw())

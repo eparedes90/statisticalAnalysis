@@ -1,0 +1,153 @@
+---
+title: "Factors of Peruvian Copper Exportation"
+subtittle: "OLS and assumption violations for a time serie" 
+author: "Created by: Eduardo Paredes"
+date: "3/11/2021"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    toc: yes
+    theme: united
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE, echo = FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig.height = 4, fig.width = 5, fig.align = "center")
+```
+
+```{r libs, echo= FALSE, warning=FALSE, message = FALSE, paged.print=FALSE}
+library(tidyverse)
+library(readxl)
+library(tseries)
+library(ggplot2)
+library(stargazer)
+library(xtable)
+library(AER)
+library(dynlm)
+library(scales)
+library(quantmod)
+library(urca)
+library(tsoutliers)
+library(strucchange)
+
+theme_set(theme_classic())
+theme_set(theme_bw())
+
+```
+
+```{r data, echo=FALSE, message=FALSE, warning=FALSE}
+
+options(scipen = 999)
+data <- readRDS("forAnalysis/dataClean.Rdata")
+colnames(data) <- c("year", "tri", "volCobre", "fdi", "gdpChina", "copPrice", "exchRate", "volCobre_var", "fdi_var", "gdpChina_var", "copPrice_var", "exchRate_var")
+data <- na.omit(data[!data$year == 21 & !data$year == 20, ])
+```
+
+
+## Data and variables
+
+- Traditional product exports (Thousands of tons). Source BCRP
+- Private sector financial account (Millions of US$) - Foreign Direct Investment. Source BCRP
+- Copper price (US$ per pound). Fuente BCRP
+- Real Exchange Rate (base 2009=100) - Bilateral. Source BCRP
+- Current Price Gross Domestic Product in China, Chinese Yuans, Quarterly, Seasonally Adjusted. Source Federal Reserve Bank of St. Louis (base 2009 = 100)
+
+
+## Descriptive Statistics
+
+```{r DescriptiveAnalysis, echo= FALSE, warning=FALSE, results = 'asis', messages = FALSE}
+stargazer(data[, 3:7], 
+          type = "latex", title = "Descriptive Stastistics")
+```
+
+### Unit root test
+It is necessary to test if there is unitary roots. 
+
+```{r augmetedDickeyFuller, echo= FALSE, warning=FALSE, messages = FALSE}
+lapply(na.omit(data[, 3:7]), adf.test)
+```
+
+All the variables have unit roots, so they will be changed to percentage variation to evade this problem. 
+
+```{r new DF test, echo = FALSE, warning=FALSE, message = FALSE}
+lapply(na.omit(data[, 8:12]), adf.test)
+```
+
+Now no variable has unit roots. 
+
+### Correlation analysis
+
+```{r, echo = FALSE, warning=FALSE, message = FALSE}
+corr <- round(data.frame(cor(data[, 8:12])), 2)
+knitr::kable(corr, caption = "Pearson Correlation")
+pairs(data[, 8:12])
+
+#time series obj
+data_ts <- ts(data[, 8:12], start = c(2000,2), frequency = 4)
+```
+
+## Econometric Analysis
+
+### OLS Regression
+```{r m1, echo=FALSE, message=FALSE, warning=FALSE, results = 'asis'}
+m1 <- dynlm(data = data_ts, formula = volCobre_var ~ .)
+
+stargazer(m1, type="latex", title = "OLS Regression")
+
+```
+
+### Test of Mulitcolinearity
+
+```{r multicol, echo = FALSE, message = FALSE}
+car::vif(m1)
+
+```
+
+### Autocorrelation
+
+```{r autocor, echo = FALSE, message = FALSE}
+#autocorrelation, acf y pacf
+plot(residuals(m1), ylab = "Residuals")
+
+acf(residuals(m1), main = "ACF")
+
+pacf(residuals(m1), main = "PACF")
+
+dwtest(m1)
+```
+
+
+### Normality
+
+```{r nor, echo = FALSE, message = FALSE}
+#normalidad
+jarque.bera.test(residuals(m1))
+plot(density(residuals(m1)), main = "Residuals Density")
+
+```
+
+### Heteroskedasticity
+
+```{r het, echo = FALSE, message = FALSE}
+#bptest
+lmtest::bptest(m1)
+
+
+```
+
+
+### Inestability
+
+```{r inestability, echo = FALSE, message = FALSE}
+#chow test
+sctest(m1,
+       type = "Chow")
+
+#cusum test
+cusum <- efp(volCobre_var ~ ., data =  data[, 8:12], type = "Rec-CUSUM")
+plot(cusum)
+
+```
+
