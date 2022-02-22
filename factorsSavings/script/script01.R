@@ -1,0 +1,193 @@
+####
+##TESIS PROPENsity AL AHORRO
+##Tesista: Alexandra Lovaton
+##08/02
+
+rm(list=ls())
+
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(stargazer)
+library(sandwich)
+library(xtable)
+library(readstata13)
+theme_set(theme_bw())
+options(scipen = 999)
+
+setwd("E:/Asesorías de tesis/Economía/Ahorro")
+
+data <- read.dta13("raw/Base de datos.dta", convert.factors = F, nonint.factors = F)
+
+data <- data[data$p1 == 1, ]
+data <- data[data$departamento == "Lima", ]
+data <- data[data$provincia == "Callao"|
+               data$provincia == "Lima", ]
+
+
+#selecting variables
+variables <- c(15:17,
+               20,
+               14,
+               117,
+               118,
+               108:116,
+               310:317)
+data <- data[, variables]
+str(data)
+
+###
+#cleaning
+data[data == -8] <- NA
+data$educacion <- NA
+
+#sin educacion 
+data$educacion[data$p8 == 1|
+                 data$p8 == 2] <- 0
+
+#primaria
+data$educacion[data$p8 == 3|
+                 data$p8 == 4] <- 1
+
+#secundaria
+data$educacion[data$p8 == 5|
+                 data$p8 == 6] <- 2
+
+#superior
+data$educacion[data$p8 >= 7] <- 3
+
+###
+#ingresos
+data$ingresos <- NA
+#menos de 400
+data$ingresos[data$p27 == 1] <- 0
+
+#400 a 750
+data$ingresos[data$p27 == 2] <- 1
+
+#750 1500
+data$ingresos[data$p27 == 3|
+                data$p27 == 4] <- 2
+
+#mas de 1500
+data$ingresos[data$p27 == 5|
+                data$p27 == 6] <- 3
+
+#as factors
+
+data[] <- apply(data[], 2, function(x) as.factor(x))
+data[, c(1, 3)] <- apply(data[, c(1,3)], 2, function(x) as.integer(x))
+
+#create new variables (ahorro)
+data$ahorro <- ifelse(data$p55_1 == 1|
+                        data$p55_2 == 1|
+                        data$p55_3 == 1|
+                        data$p55_4 == 1|
+                        data$p55_5 == 1|
+                        data$p55_6 == 1,
+                      1, 
+                      0)
+
+
+data <- data[, c("p3", "p4", "p5", "educacion", "p2", "ingresos", "ahorro")]
+colnames(data) <- c("Edad", "EstadoCivil", "MiembrosHogar", "Educacion", "Sexo", "Ingresos", "Ahorro")
+data <- data[!is.na(data$Ahorro), ]
+data$Ahorro[data$Ahorro == "0"] <- "Control"
+data$Ahorro[data$Ahorro == "1"] <- "Case"
+
+
+#### modelo econométrico
+model <- glm(data= data , factor(Ahorro) ~ ., family = "binomial")
+summary(model)
+
+stargazer(model, align=TRUE, type="html", out="plots/logit1.htm", header = FALSE)
+
+model1 <- data.frame(exp(cbind(OR = coef(model), confint(model))))
+model1 <- xtable(model1)
+print.xtable(model1, type = "html", file = "plots/logit.htm")
+
+### estadística descriptiva
+for (n in c(2, 4:6)) {
+  a <- colnames(data[n])
+  temp <- table(data[, c(n, 7)])
+  temp2 <- data.frame(temp)
+  temp3 <- pivot_wider(temp2, names_from = Ahorro, values_from = Freq)
+  temp3 <- xtable(temp3)
+  print.xtable(temp3, type = "html", file = paste("plots/", a, ".htm", sep = ""))
+  temp4 <- summary(temp)
+  
+  #hacer llamado a la columna
+  column <- sym(a)
+  temp5 <- ggplot(na.omit(data[, c(a, "Ahorro")]), aes(x = !!column, fill = Ahorro)) +
+    geom_bar(stat = "count",
+             position = position_dodge()) +
+    labs(title = a,
+         x = "",
+         y = "") +
+    geom_text(aes(label = ..count..),
+              stat = "count",
+              vjust = 1.4,
+              size = 3,
+              color = "black",
+              position = position_dodge(.9)) +
+    scale_fill_brewer(palette = 1.3)+
+    theme(legend.title = element_blank())
+  ggsave(filename = paste("plots/", a, ".jpg", sep = ""), 
+         plot = temp5, 
+         height = 6, width = 6.5)
+  if (n == 2) {
+    chiqt <- temp4
+  } else {
+    chiqt <- rbind(chiqt, temp4)}}
+
+chiqt2 <- as.data.frame(chiqt)
+chiqt2$variables <- colnames(data[, c(2, 4:6)])
+chiqt2 <- chiqt2[, c(8, 3,4,6)]
+rownames(chiqt2) <- 1:4
+chiqt2 <- xtable(chiqt2)
+print.xtable(chiqt2, type = "html", file = "plots/chiqt.htm")
+
+#continuous variables
+m_edad <- glm(data = data,
+              formula = factor(Ahorro) ~ Edad,
+              family = "binomial")
+summary(m_edad)
+
+edad <- data.frame(exp(cbind(OR = coef(m_edad), confint(m_edad))))
+edad <- xtable(edad)
+print.xtable(edad, type = "html", file = "plots/edad.htm")
+
+ggplot(data, aes(y = Edad, x = Ahorro)) +
+  geom_boxplot() +
+  labs(title = "Edad",
+       x = "",
+       y = "") +
+  scale_fill_brewer(palette = 1.3)
+ggsave(filename = "plots/Edad.jpg", 
+       height = 4, width = 4.5)
+
+#
+m_miembros <- glm(data = data,
+              formula = factor(Ahorro) ~ MiembrosHogar,
+              family = "binomial")
+summary(m_miembros)
+
+miembros <- data.frame(exp(cbind(OR = coef(m_miembros), confint(m_miembros))))
+miembros <- xtable(miembros)
+print.xtable(miembros, type = "html", file = "plots/miembros.htm")
+
+ggplot(data, aes(y = MiembrosHogar, x = Ahorro)) +
+  geom_boxplot() +
+  labs(title = "MiembrosHogar",
+       x = "",
+       y = "") +
+  scale_fill_brewer(palette = 1.3)
+ggsave(filename = "plots/MiembrosHogar.jpg", 
+       height = 4, width = 4.5)
+
+write.csv(data, "dataForAnalysis/cleanData.csv")
+
+#cambios para analisis en RMd
+colnames(data) <- c("Age", "Marital Status", "NumMembersAtHome", "Education", "Sex",
+                    "Income", "Savings")
+saveRDS(data, "dataForAnalysis/cleanData.Rdata")
