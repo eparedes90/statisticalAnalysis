@@ -1,11 +1,11 @@
 \contentsline {subsection}{Data and variables}{1}{section*.2}%
 \contentsline {subsection}{Descriptive Statistics}{1}{section*.3}%
-\contentsline {subsubsection}{Unit root test}{1}{section*.4}%
-\contentsline {subsubsection}{Correlation analysis}{3}{section*.5}%
-\contentsline {subsection}{Econometric Analysis}{4}{section*.6}%
-\contentsline {subsubsection}{OLS Regression}{4}{section*.7}%
-\contentsline {subsubsection}{Test of Mulitcolinearity}{4}{section*.8}%
+\contentsline {subsubsection}{Unit root test}{2}{section*.4}%
+\contentsline {subsubsection}{Correlation analysis}{4}{section*.5}%
+\contentsline {subsection}{Econometric Analysis}{5}{section*.6}%
+\contentsline {subsubsection}{OLS Regression}{5}{section*.7}%
+\contentsline {subsubsection}{Multicolinearity}{6}{section*.8}%
 \contentsline {subsubsection}{Autocorrelation}{6}{section*.9}%
-\contentsline {subsubsection}{Normality}{7}{section*.10}%
+\contentsline {subsubsection}{Normality}{8}{section*.10}%
 \contentsline {subsubsection}{Heteroskedasticity}{8}{section*.11}%
 \contentsline {subsubsection}{Inestability}{8}{section*.12}%

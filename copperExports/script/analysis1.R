@@ -49,18 +49,14 @@ savePlot(filename = "plots/correlationsGraph.jpg",
 
 #ts objects
 data_ts <- ts(data[, 8:12], start = c(2000,2), frequency = 4)
-data_ts
-plot(data_ts)
-plot(data$pbiChina)
-mean(data$pbiChina)
+
 
 #######
 ##AN?LISIS ECONOM?TRICO
 ######
 
 #modelo1
-m1 <- dynlm(data = data_ts, formula = volCobre_var ~ 
-              pbiChina_var + precioCobre_var + tipoCambio_var + ied_var)
+m1 <- dynlm(data = data[8:12], formula = volCobre_var ~ .)
 summary(m1)
 
 stargazer(m1,
