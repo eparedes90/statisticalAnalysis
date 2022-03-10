@@ -1,0 +1,105 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}E:\Asesorías de tesis\Economía\Eficiencia del gasto público en la educación\script\docente.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 2 Oct 2021, 14:55:02
+
+{com}. do "C:\Users\Eduardo\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "E:/Asesorías de tesis/Economía/Eficiencia del gasto público en la educación/Docentes_01.dta", clear
+{txt}(Written by R.              )
+
+{com}. keep if niv_mod=="F0"
+{err}niv_mod not found
+{txt}{search r(111):r(111);}
+
+end of do-file
+
+{search r(111):r(111);}
+
+{com}. do "C:\Users\Eduardo\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "E:/Asesorías de tesis/Economía/Eficiencia del gasto público en la educación/Docentes_01.dta", clear
+{txt}(Written by R.              )
+
+{com}. keep if cuadro=="C301"
+{err}cuadro not found
+{txt}{search r(111):r(111);}
+
+end of do-file
+
+{search r(111):r(111);}
+
+{com}. do "C:\Users\Eduardo\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "E:/Asesorías de tesis/Economía/Eficiencia del gasto público en la educación/Docentes_01.dta", clear
+{txt}(Written by R.              )
+
+{com}. keep if NIV_MOD=="F0"
+{err}NIV_MOD not found
+{txt}{search r(111):r(111);}
+
+end of do-file
+
+{search r(111):r(111);}
+
+{com}. do "C:\Users\Eduardo\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "E:/Asesorías de tesis/Economía/Eficiencia del gasto público en la educación/Docentes_01.dta", clear
+{txt}(Written by R.              )
+
+{com}. keep if niv_mod =="F0"
+{err}type mismatch
+{txt}{search r(109):r(109);}
+
+end of do-file
+
+{search r(109):r(109);}
+
+{com}. do "C:\Users\Eduardo\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "E:/Asesorías de tesis/Economía/Eficiencia del gasto público en la educación/Docentes_01.dta", clear
+{txt}(Written by R.              )
+
+{com}. keep if niv_mod == "F0"
+{err}type mismatch
+{txt}{search r(109):r(109);}
+
+end of do-file
+
+{search r(109):r(109);}
+
+{com}. do "C:\Users\Eduardo\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "E:/Asesorías de tesis/Economía/Eficiencia del gasto público en la educación/Docentes_01.dta", clear
+{txt}(Written by R.              )
+
+{com}. keep if niv_mod == "F0"
+{err}type mismatch
+{txt}{search r(109):r(109);}
+
+end of do-file
+
+{search r(109):r(109);}
+
+{com}. do "C:\Users\Eduardo\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "E:/Asesorías de tesis/Economía/Eficiencia del gasto público en la educación/Docentes_01.dta", clear
+{txt}(Written by R.              )
+
+{com}. keep if niv_mod == "F0"
+{err}type mismatch
+{txt}{search r(109):r(109);}
+
+end of do-file
+
+{search r(109):r(109);}
+
+{com}. type(niv_mod)
+{err}invalid 'niv_mod' 
+{txt}{search r(198):r(198);}
+
+{com}. help
+
+. exit, clear

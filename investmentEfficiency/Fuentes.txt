@@ -1,0 +1,35 @@
+tasaDesnutricion: TASA DE DESNUTRICIÓN CRÓNICA DE NIÑOS/AS MENORES DE 5 AÑOS, SEGÚN DEPARTAMENTO, 2009 - 2019, INEI (porcentaje)
+TASA DE DESNUTRICIÓN CRÓNICA DE NIÑOS/AS MENORES DE 5 AÑOS, SEGÚN DEPARTAMENTO, 2009 - 2019
+
+docentes: DOCENTES DEL SISTEMA EDUCATIVO DEL SECTOR PÚBLICO, SEGÚN DEPARTAMENTO, 2008 - 2019 (número)
+https://www.inei.gob.pe/estadisticas/indice-tematico/sociales/#:~:text=DOCENTES%20DEL%20SISTEMA%20EDUCATIVO%20DEL%20SECTOR%20P%C3%9ABLICO%2C%20SEG%C3%9AN%20DEPARTAMENTO%2C%202008%20-%202019
+
+alumnosMatriculados: ALUMNOS MATRICULADOS EN EDUCACIÓN SECUNDARIA, POR GESTIÓN PÚBLICA, SEGÚN DEPARTAMENTO, 2009-2019 (en miles)
+https://www.inei.gob.pe/estadisticas/indice-tematico/sociales/#:~:text=ALUMNOS%20MATRICULADOS%20EN%20EDUCACI%C3%93N%20SECUNDARIA%2C%20POR%20GESTI%C3%93N%20P%C3%9ABLICA%2C%20SEG%C3%9AN%20DEPARTAMENTO%2C%202009-2019
+
+analfabetismo: TASA DE ANALFABETISMO DE LA POBLACIÓN DE 15 Y MÁS AÑOS DE EDAD, SEGÚN ÁMBITO GEOGRÁFICO, 2008 - 2019 (porcentaje)
+https://www.inei.gob.pe/estadisticas/indice-tematico/sociales/#:~:text=TASA%20DE%20ANALFABETISMO%20DE%20LA%20POBLACI%C3%93N%20DE%2015%20Y%20M%C3%81S%20A%C3%91OS%20DE%20EDAD%2C%20SEG%C3%9AN%20%C3%81MBITO%20GEOGR%C3%81FICO%2C%202008%20-%202019
+
+gastoPublico: GASTO PÚBLICO POR ALUMNO EN EDUCACIÓN BÁSICA REGULAR, SEGÚN NIVEL EDUCATIVO Y DEPARTAMENTO, 2008 - 2018 (Nuevos soles corrientes)
+https://www.inei.gob.pe/estadisticas/indice-tematico/sociales/#:~:text=GASTO%20P%C3%9ABLICO%20POR%20ALUMNO%20EN%20EDUCACI%C3%93N%20B%C3%81SICA%20REGULAR%2C%20SEG%C3%9AN%20NIVEL%20EDUCATIVO%20Y%20DEPARTAMENTO%2C%202008%20-%202018
+
+pbiRegiones: PERÚ: Producto Bruto Interno por Años, según Departamentos 2007 - 2020 (En Variación Porcentual/Valores a precios contantes 2007 miles de soles)
+https://www.inei.gob.pe/media/MenuRecursivo/indices_tematicos/pbi_peru_10.xlsx
+
+pobTotal: Población total, censada y omitida, según año censal/Años intercensales estimados (número)
+https://www.inei.gob.pe/estadisticas/indice-tematico/poblacion-y-vivienda/#:~:text=Poblaci%C3%B3n%20total%2C%20censada%20y%20omitida%2C%20seg%C3%BAn%20a%C3%B1o%20censal
+
+PobUrb: Evolución de la población censada urbana, según departamento y año censal (número)
+https://www.inei.gob.pe/estadisticas/indice-tematico/poblacion-y-vivienda/#:~:text=Evoluci%C3%B3n%20de%20la%20poblaci%C3%B3n%20censada%20urbana%2C%20seg%C3%BAn%20departamento%20y%20a%C3%B1o%20censal
+
+tasaMatricula: TASA NETA DE MATRÍCULA A EDUCACIÓN SECUNDARIA DE LA POBLACIÓN DE 12 A 16 AÑOS DE EDAD, SEGÚN ÁMBITO GEOGRÁFICO, 2008-2019 (porcentaje)
+https://www.inei.gob.pe/estadisticas/indice-tematico/sociales/#:~:text=TASA%20NETA%20DE%20MATR%C3%8DCULA%20A%20EDUCACI%C3%93N%20SECUNDARIA%20DE%20LA%20POBLACI%C3%93N%20DE%2012%20A%2016%20A%C3%91OS%20DE%20EDAD%2C%20SEG%C3%9AN%20%C3%81MBITO%20GEOGR%C3%81FICO%2C%202008-2019
+
+tasaConclusion: NIVEL DE EDUCACIÓN ALCANZADO POR LA POBLACIÓN DE 15 Y MÁS AÑOS DE EDAD, SEGÚN ÁMBITO GEOGRÁFICO, 2008-2019 (porcentaje)
+https://www.inei.gob.pe/estadisticas/indice-tematico/sociales/#:~:text=NIVEL%20DE%20EDUCACI%C3%93N%20ALCANZADO%20POR%20LA%20POBLACI%C3%93N%20DE%2015%20Y%20M%C3%81S%20A%C3%91OS%20DE%20EDAD%2C%20SEG%C3%9AN%20%C3%81MBITO%20GEOGR%C3%81FICO%2C%202008-2019
+
+compLectora: Censo Educativo
+
+Matemática: Censo Educativo
+
+
