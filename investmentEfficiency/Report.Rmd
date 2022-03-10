@@ -7,11 +7,11 @@ header-includes:
    - \usepackage{lipsum}
    - \usepackage{float}
 output:
+  pdf_document:
+    toc: yes
   html_document:
     toc: yes
     theme: united
-  pdf_document:
-    toc: yes
 editor_options:
   chunk_output_type: console
 ---
@@ -40,7 +40,7 @@ options(scipen = 999)
 
 ```
 
-## Data and Variables
+# Data and Variables
 
 ```{r data, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -89,18 +89,18 @@ colnames(data) <- temp
 
 Only 2015, 2016 and 2018 were taken as sample due to Educational Census limitations. 
 
-## Logic Behind
+# Logic Behind
 
-The study aims to rank the regions of Peru by its efficiency expenditure en Education. This variable is calculated by DEA procedure, where the output is the compLectora, matematica, tasaMatricula, tasaConclusion and the input is gastoPublico. 
+The study aims to rank the regions of Peru by its efficiency expenditure in Education. This variable is calculated by DEA procedure, where the output is compLectora, matematica, tasaMatricula, tasaConclusion and the input is gastoPublico. 
 
 After DEA, the paper seeks to find the impact of some variables on the efficiency using a Panel Data.
 
-Further econometric and theory explanation and details were explained in a meeting.
+Further econometric, theory explanation and details were explained in a meeting.
 
 
-## Data Envelopment Analysis (DEA) - First Step
+# Data Envelopment Analysis (DEA) - First Step
 
-### Descriptive Analysis
+## Descriptive Analysis
 
 ```{r DescriptiveAnalysis, echo= FALSE, warning=FALSE, messages = FALSE, results='asis'}
 
@@ -109,7 +109,7 @@ stargazer(data[, c(7, 5, 8, 14, 12)],  type = "latex", table.placement = "H",
 
 ```
 
-### Calculus of Efficiency (DEA)
+## Calculus of Efficiency (DEA)
 
 ```{r EfficiencyScoresYear, echo= FALSE, warning=FALSE, messages = FALSE}
 eficiency <- data[, c(1,2, 15:18)]
@@ -148,7 +148,7 @@ ggplot(data, aes(x = data$gastoPublico, y = data$deaRobust, label = Departamento
 ```
 
 
-## Panel Data - Second Step
+# Panel Data - Second Step
 
 ```{r PanelData, echo= FALSE, warning=FALSE, messages = FALSE, paged.print=FALSE, results='asis'}
 stargazer(data[, c(16, 4, 9, 13, 19, 20)], type = "latex", table.placement = "H", 
@@ -156,7 +156,7 @@ stargazer(data[, c(16, 4, 9, 13, 19, 20)], type = "latex", table.placement = "H"
 
 ```
 
-### Analysis of Correlations
+## Analysis of Correlations
 
 ```{r PanelData2, echo= FALSE, warning=FALSE, messages = FALSE, paged.print=FALSE}
 cor <- round(cor(data[, c(16, 4, 9, 13, 19, 20)]), 2)
@@ -165,9 +165,9 @@ knitr::kable(cor, caption = "Pearson Correlation")
 pairs(data[, c(16, 4, 9, 13, 19, 20)])
 ```
 
-### Variance Inflation Factor
+## Variance Inflation Factor
 
-#### With nivelUrb
+### With nivelUrb
 
 ```{r PanelData2.1, echo= FALSE, warning=FALSE, messages = FALSE, paged.print=FALSE}
 m_vif <- lm(data = data, data$deaRobust ~ data$analfabetismo +
@@ -178,7 +178,7 @@ m_vif <- lm(data = data, data$deaRobust ~ data$analfabetismo +
 car::vif(m_vif)
 ```
 
-#### Withouth nivelUrb
+### Withouth nivelUrb
 
 ```{r PanelData2.2, echo= FALSE, warning=FALSE, messages = FALSE, paged.print=FALSE}
 m_vif2 <- lm(data = data, data$deaRobust ~ data$analfabetismo +
@@ -190,7 +190,7 @@ car::vif(m_vif2)
 
 ```
 
-### Fixed Effects
+## Fixed Effects
 
 ```{r PanelData3, echo= FALSE, warning=FALSE, messages = FALSE, paged.print=FALSE, results='asis'}
 plm_within_2 <- plm(data = data,
@@ -206,7 +206,7 @@ stargazer(plm_within_2, type = "latex", table.placement = "H",
 
 ```
 
-### Random Effects
+## Random Effects
 
 ```{r PanelData4, echo= FALSE, warning=FALSE, messages = FALSE, paged.print=FALSE, results='asis'}
 plm_random_2 <- plm(data = data,
@@ -219,7 +219,7 @@ stargazer(plm_random_2, type = "latex", table.placement = "H",
           title = "Panel Data Random Effects", header = FALSE)
 ```
 
-### Tests
+## Tests
 
 ```{r PanelData5, echo= FALSE, warning=FALSE, messages = FALSE, paged.print=FALSE}
 #Tests

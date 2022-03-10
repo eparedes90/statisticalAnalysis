@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.9)  10 MAR 2022 15:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.9)  10 MAR 2022 15:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -487,11 +487,11 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 92.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (./Report.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 1.
+(Font)              <10> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 1.
+(Font)              <7> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 1.
+(Font)              <5> on input line 4.
 )
 \tf@toc=\write4
 \openout4 = `Report.toc'.
@@ -506,63 +506,62 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
                                                   \__shipout_drop_firstpage_...
 l.227 \end{longtable}
                      ]
-<Report_files/figure-latex/EfficiencyScoresYear-1.pdf, id=49, 469.755pt x 325.215pt>
+<Report_files/figure-latex/EfficiencyScoresYear-1.pdf, id=82, 469.755pt x 325.215pt>
 File: Report_files/figure-latex/EfficiencyScoresYear-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/EfficiencyScoresYear-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/EfficiencyScoresYear-1.pdf  used on input line 229.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[3 <./Report_files/figure-latex/EfficiencyScoresYear-1.pdf>]
-<Report_files/figure-latex/PanelData2-1.pdf, id=60, 469.755pt x 325.215pt>
+[3] [4pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.274 \end{longtable}
+                      <./Report_files/figure-latex/EfficiencyScoresYear-1.pdf>]
+<Report_files/figure-latex/PanelData2-1.pdf, id=100, 469.755pt x 325.215pt>
 File: Report_files/figure-latex/PanelData2-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/PanelData2-1.pdf>
-Package pdftex.def Info: Report_files/figure-latex/PanelData2-1.pdf  used on input line 277.
+Package pdftex.def Info: Report_files/figure-latex/PanelData2-1.pdf  used on input line 276.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[4pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.286 \begin{verbatim}
-                       <./Report_files/figure-latex/PanelData2-1.pdf>]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 286.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 284.
 (c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [5pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
+) [5 <./Report_files/figure-latex/PanelData2-1.pdf>] [6pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.377 
+l.375 
       ]
-Overfull \hbox (91.99335pt too wide) in paragraph at lines 397--397
+Overfull \hbox (91.99335pt too wide) in paragraph at lines 395--395
 []\T1/lmtt/m/n/10 ## data:  data$deaRobust ~ data$alumDoc + data$analfabetismo + data$pbiRegiones +     data$tasaDesnutricion[] 
  []
 
 
-Overfull \hbox (91.99335pt too wide) in paragraph at lines 406--406
+Overfull \hbox (91.99335pt too wide) in paragraph at lines 404--404
 []\T1/lmtt/m/n/10 ## data:  data$deaRobust ~ data$alumDoc + data$analfabetismo + data$pbiRegiones +     data$tasaDesnutricion[] 
  []
 
-[6pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has been already used, duplicate ignored
+[7pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.414 \end{verbatim}
-                    ] [7] (./Report.aux)
+l.412 \end{verbatim}
+                    ] [8] (./Report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: E71DD8C3CEB20FE568C824958FFF242A;711.
+(rerunfilecheck)             Checksum: 313441877A3C1CB4B240D63CADF06AEB;1775.
  ) 
 Here is how much of TeX's memory you used:
- 11747 strings out of 480236
- 189236 string characters out of 5893871
- 571724 words of memory out of 5000000
- 29449 multiletter control sequences out of 15000+600000
+ 11755 strings out of 480236
+ 189329 string characters out of 5893871
+ 570732 words of memory out of 5000000
+ 29456 multiletter control sequences out of 15000+600000
  519491 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  68i,10n,77p,369b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/R RSTUDIO/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Report.pdf (7 pages, 367254 bytes).
+Output written on Report.pdf (8 pages, 370078 bytes).
 PDF statistics:
- 174 PDF objects out of 1000 (max. 8388607)
- 136 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 99 words of extra memory for PDF output out of 10000 (max. 10000000)
 
