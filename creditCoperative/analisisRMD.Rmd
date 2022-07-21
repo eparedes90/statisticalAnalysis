@@ -1,0 +1,206 @@
+---
+title: "Factors of savings: Lima Case"
+subtitle: "Chi square test of independence and Logit univariate"
+author: "Created by: Eduardo Paredes"
+date: "9/2/2022"
+output:
+  html_document:
+    toc: yes
+    theme: united
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE, echo = FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig.height = 4, fig.width = 5, fig.align = "center")
+```
+
+
+```{r libs, echo= FALSE, warning=FALSE, message = FALSE}
+library(pander)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(sandwich)
+library(xtable)
+theme_set(theme_bw())
+options(scipen = 999)
+data <- readRDS("forAnalysis/data2.Rdata")
+#as factors
+data[, ] <- apply(data[, ], 2, function(x) as.factor(x))
+
+str(data)
+#as numeric
+numeric <- colnames(data[, c("P101", "P104_SUP_ha")])
+data[, numeric] <- apply(data[, numeric], 2, function(x) as.numeric(x))
+
+#limitar a los peque??os y medianos agricultores (menos de 50ha)
+data <- data[data$P104_SUP_ha<=50, ]
+
+#solo creditos formales
+data <- data[!data$credFormal == 2, ]
+
+colnames(data)
+data <- data[, c(17, 19:28, 40:44)]
+
+table(data$credFormal)
+```
+
+## Data
+
+The source of the data is "Encuesta Nacional de Demanda de Servicios Financieros y Nivel de Cultura Financiera en el Perú" provided by Superintendencia de Banca y Seguros (SBS)
+
+The regions selected were Lima and Callao. The sample was reduced to all the interviewed who are heads of a household. 
+
+### Variables definition
+
+- Savings: (Dichotomic variable) Cases are the ones who answered in the question "p_55" the options from 1 to 6; Control, 7 and 8. In other words, Cases are the people who are saving money when they get old (or retired), while Controls are not saving money. 
+
+- Age: (Numeric variable) Question "p_3". 
+
+- Education: (Ordered variable) Question "p_8". The ones who marked the option 1 they do not have education, and were assigned the rank "0"; option 2, just kindergarten education, and were assigned the rank "1"; option 3 and 4, primary education with rank "2"; option 5 and 6, secondary education with rank "3", the rest of options, superior education with rank "4".
+
+- Marital Status: (Categorical variable) Question "p_4". 
+
+- Sex: (Dichotomic variable) Question "p_2". Men were assigned "0" and Women, "1". 
+
+- Income: (Ordered variable) Question "p_27". People who earned less than 400 soles were assigned "0"; more or equal than 400 soles and less than 750 soles, "1"; more or equal than 750 soles and less than 1500 soles, "2"; more or equal than 1500 soles, "3".
+
+- NumMembersAtHome: (Numeric Variable). Question "p_5". Number of people who live in the household. 
+
+
+```{r loop, echo=FALSE, message=FALSE, warning = FALSE, results="asis", paged.print = FALSE}
+
+#dependent variables: the last column, and it must be a dichotomic variable
+#all the independent variables will be divided in function of 
+#of its type. 
+
+#If they are numeric, 
+  #the plot will be a boxplot,
+  #the test will be a logit univariate
+
+#if not, the plot will 
+  #be a barplot. 
+  #test chi sq
+
+#loop the names, the results and the plots
+
+#name of the dependent variable
+dep <- colnames(data)[length(data)]
+
+#symbol of dependent variable to put into a function as an object
+dependent <- sym(dep)
+
+for (i in 1:(length(data)-1)) {
+  
+  if (class(data[, i]) == "character"){
+    
+    #each independent variable will be call a
+    a <- colnames(data)[i]
+    
+    #create symbols to use in the ggplots
+    column <- sym(a)
+    
+    #create first level header for each independent variable
+    pander::pandoc.header(a, level = 2)
+    
+    #create plot and print
+    temp5 <- ggplot(data, aes(x = !!column, fill = !!dependent)) +
+      geom_bar(stat = "count",
+               position = position_dodge()) +
+      labs(title = a,
+           x = "",
+           y = "") +
+      geom_text(aes(label = ..count..),
+                stat = "count",
+                vjust = 1.4,
+                size = 3,
+                color = "black",
+                position = position_dodge(.9)) +
+      scale_fill_brewer(palette = 1.3)+
+      theme(legend.title = element_blank())
+
+    print(temp5)
+
+    #create table of results
+    temp <- table(data[, c(a, dep)])
+    temp2 <- data.frame(temp)
+    temp3 <- pivot_wider(temp2, names_from = !!dependent, values_from = Freq)
+    temp3$`% Case` <- round(temp3[2]/sum(temp3[2])*100, 2)
+    temp3$`% Control` <- round(temp3[3]/sum(temp3[3])*100, 2)
+    temp3 <- temp3[, c(1,2,4,3,5)]
+    print(knitr::kable(temp3, caption = "Table of Frequencies"))
+    cat("\n")
+    
+    #create table of test
+    temp4 <- summary(temp)
+    temp4 <- data.frame(temp4$statistic, temp4$parameter, temp4$p.value)
+    temp4$variable <- a
+    temp4 <- temp4[, c(4, 1, 2, 3)]
+    colnames(temp4) <- c("Variable", "Statistic", "Parameter", "p.value")
+    print(knitr::kable(temp4, caption = "Chi square test of independence"))
+    cat("\n")
+    
+    #texto hipótesis 
+    cat("H0: ", dep, "and",  a, "are independent  \n")
+    cat("H1: ", dep, "and",  a, "are not independent  \n")
+    
+    #if the p value is less or equal than 0.05
+    if (temp4$p.value <= 0.05) {
+      cat("Result: Reject H0. With 95% of confidence it could be affirmed that", dep, "and", a, "are not independent  \n")   
+    } else {
+      cat("Result: Accept H0. With 95% of confidence it could be affirmed that", dep, "and", a, "are independent  \n")   
+    }
+
+  } else {
+    
+    a <- colnames(data)[i]
+    
+    #create symbols to use in the ggplots
+    column <- sym(a)
+    
+    #header
+    pander::pandoc.header(a, level = 2)
+    
+    #print plot 
+    temp6 <- ggplot(data, aes(y = !!column, x = !!dependent)) +
+    geom_boxplot() +
+    labs(title = a,
+         x = "",
+         y = "") +
+    scale_fill_brewer(palette = 1.3)
+    
+    print(temp6)
+
+    #univariate logit
+    temp_logit <- glm(data = data,
+              formula = factor(data[, length(data)]) ~ data[, i],
+              family = "binomial")
+    temp_logit1 <- summary(temp_logit)
+    
+    print(knitr::kable(data.frame(temp_logit1$coefficients), caption = "Results of univariate logit"))
+    cat('\n')
+
+    temp_logit2 <- data.frame(exp(cbind(OR = coef(temp_logit), confint(temp_logit))))
+    print(knitr::kable(temp_logit2, caption = "Odds Ratio"))
+    cat("\n")
+    
+    #hypothesis txt 
+    cat("H0: The coefficient of", dep, "is zero  \n")
+    cat("H1: The coefficient of", dep, "is not zero  \n")
+    
+    #if the p value is less or equal than 0.05
+    if (coef(summary(temp_logit))[,'Pr(>|z|)'][2] <= 0.05) {
+      cat("Result: Reject H0. With 95% of confidence it could be affirmed that the coefficient of", dep, "is not zero  \n")   
+    } else {
+      cat("Result: Accept H0. With 95% of confidence it could be affirmed that the coefficient of", dep, "is zero  \n")   
+    }
+  }
+}
+
+```
+
+
+
