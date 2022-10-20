@@ -13,7 +13,7 @@ It is needed to have R and Python and the libraries cited inside the files.
 
 ## File Description
 
-* Inside ProjectBlogPost carpet you will find a Jupyter Notebook and the data used (in stata format) for the BlogPost in medium. The link of this Blog post is https://medium.com/@eparedes90/seven-findings-that-will-help-you-understand-saving-for-retirement-in-peru-1862b7c4e57
+* Inside ProjectBlogPost carpet you will find a Jupyter Notebook and the data used (in stata format) for the BlogPost in Medium Web Site. The link of it is https://medium.com/@eparedes90/seven-findings-that-will-help-you-understand-saving-for-retirement-in-peru-1862b7c4e57
 
 * Inside the carpets named copperExports, factorSavings, and investment efficiency are projects in R. Every project have the following subcarpets:
     * Data: raw data
