@@ -5,7 +5,7 @@
 ## Project Motivation
 
 Tesis&Analisis was created to help researchers extract, clean, and analyze the data of their research projects. 
-In this repository, you would find carpets of some projects of extraction and analysis of data. Some of them do have not a complete explanation for business purposes.
+In this repository, you would find carpets of some projects of extraction and analysis of data. Some of them do not have a complete explanation for business purposes.
 
 ## Installations
 
