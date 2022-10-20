@@ -1,6 +1,5 @@
 ![SOPHIA COVER LOGO](https://user-images.githubusercontent.com/73708363/196550994-ad236eae-2c57-48b7-b535-c1b2dc05ac51.png)
-											Analysis of data for your research
-
+											
 # Tesis&Analisis: data analysis for your research
 
 ## Project Motivation
