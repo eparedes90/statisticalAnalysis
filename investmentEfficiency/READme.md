@@ -15,7 +15,7 @@ Econometric theory explanation and details were explained in a meeting.
 * scripts #Scripts in R for data cleaning
 
 # Complementary carpets and files
-* RMarkdown coding #Report.RMD
+* Report.RMD #RMarkdown coding
 * Fuentes #Data sources
 * data #carpet with first part of the data
 * data2 #carpet with second part of the data given after a month
