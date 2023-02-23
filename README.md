@@ -13,11 +13,6 @@ It is needed to have R and Python and the libraries cited inside the files.
 
 ## File Description
 
-* Inside ProjectBlogPost carpet you will find a Jupyter Notebook and the data used (in stata format) for the BlogPost in Medium Web Site. The link of it is https://medium.com/@eparedes90/seven-findings-that-will-help-you-understand-saving-for-retirement-in-peru-1862b7c4e57
-
-* Inside the carpets named copperExports, factorSavings, and investment efficiency are projects in R. Every project have the following subcarpets:
-    * Data: raw data
-    * For Analysis: Cleaned data
-    * Plots: Graphs and tables
-    * Script: Files in Rmd or txt to read in RStudio
-    * If you want to see the statistical report you will need to go to the .pdf file with the same name as the carpet inside of it.
+* cooperExports #Project that analyzes the effect of economic growth of China in the peruvian cooperExports (Time series analysis)
+* factorSavings #Statiscal analysis of the factors of saving for retirement in Peru (Chi square tests and logit univariate analysis)
+* investmentEfficiency #Project that analyzes the investment efficiency in Education in the peruvian regions (Panel Data and DEA procedure)
