@@ -15,13 +15,13 @@ Econometric theory explanation and details were explained in a meeting.
 * scripts #Scripts in R for data cleaning
 
 # Complementary carpets and files
-* RMarkdown coding: Report.RMD
-* Fuentes: Data sources
-* data: carpet with first part of the data
-* data2: carpet with second part of the data given after a month
-* data3: carpet with third part of the data given after a month
-* dataDocAlum15: R document with all the cleaning procedure for elaborating an indicator of Education for 2015
-* dataDocAlum16: R document with all the cleaning procedure for elaborating an indicator of Education for 2016
-* plots: complementary plots
+* RMarkdown coding #Report.RMD
+* Fuentes #Data sources
+* data #carpet with first part of the data
+* data2 #carpet with second part of the data given after a month
+* data3 #carpet with third part of the data given after a month
+* dataDocAlum15 #R document with all the cleaning procedure for elaborating an indicator of Education for 2015
+* dataDocAlum16 #R document with all the cleaning procedure for elaborating an indicator of Education for 2016
+* plots #complementary plots
 
 
