@@ -9,7 +9,7 @@ In this repository, you would find carpets of some projects of extraction and an
 
 ## Installations
 
-It is needed to have R and Python and the libraries cited inside the files. 
+It is needed to have R, R Studio and Latex. 
 
 ## File Description
 
