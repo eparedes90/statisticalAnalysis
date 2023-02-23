@@ -10,7 +10,7 @@ The study aims to analyze the effect of economic growth of China in the peruvian
 * plots #carpet with the plots of the final report
 * data #carpet with the raw data
 
-# Complementary carpets and files
+## Complementary carpets and files
 * copperExports.html #Final Report in HTML
 * copperExports.txt #Final Report in txt
 * copperExports.Rproj #The R project with all the coding
