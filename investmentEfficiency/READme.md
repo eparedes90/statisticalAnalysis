@@ -7,12 +7,12 @@ calculated by DEA procedure. After this step, the paper seeks to find the impact
 Econometric theory explanation and details were explained in a meeting.
 
 # Principal Content
-* Final Report in PDF: Report.pdf
-* Final Report in HTML: Report.html
-* Final Report in txt: Report.txt
-* The R project with all the coding: investmentEfficiency.Rproj
-* forAnalysis: Cleaned data
-* scripts: Scripts in R for data cleaning
+* Report.pdf #Final Report in PDF
+* Report.html #Final Report in HTML
+* Report.txt #Final Report in txt
+* investmentEfficiency.Rproj  #The R project with all the coding
+* forAnalysis #carpetCleaned data
+* scripts #Scripts in R for data cleaning
 
 # Complementary carpets and files
 * RMarkdown coding: Report.RMD
