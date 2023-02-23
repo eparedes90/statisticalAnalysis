@@ -1,7 +1,7 @@
 # Peruvian Copper Exports: Time series and OLS analysis
 
 ## Objective
-The study aims to analyze the effect of economic growth of China in the peruvian copper exports. A Regression model was used and OLS's assumptions were tested.
+The study aims to analyze the effect of economic growth of China in the peruvian copper exports. A Regression model was used and OLS's assumptions were tested. Econometric theory explanation and details were explained in a meeting.
 
 ## Principal Content
 * copperExports.pdf #Final Report in PDF
