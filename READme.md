@@ -14,5 +14,5 @@ It is needed to have R, R Studio and Latex.
 ## File Description
 
 * cooperExports #Project that analyzes the effect of economic growth of China in the peruvian cooperExports (Time series analysis)
-* factorSavings #Statiscal analysis of the factors of saving for retirement in Peru (Chi square tests and logit univariate analysis)
+* factorSavings #Statistical analysis of the factors of saving for retirement in Peru (Chi square tests and logit univariate analysis)
 * investmentEfficiency #Project that analyzes the investment efficiency in Education in the peruvian regions (Panel Data and DEA procedure)
